@@ -102,18 +102,19 @@ void deleteNode(int value) {
 }
 
 void deleteList() {
-    Node* current = head, *prev = head;
+    Node *current = head, *prev = head;
     if(!current) {
         cout << "The list is empty" << endl;
         return;
     }
 
+    head = NULL;
     while(current && current->next) {
         prev = current;
         current = current->next;
 
         cout << "Deleting : " << prev->data << endl;
-        delete prev;
+        free(prev);
     }
     
     cout << "Deleting : " << current->data << endl;
@@ -139,6 +140,8 @@ int main(int argc, char** argv) {
     // deleteNode(20);
 
     deleteList();
+
+    //insertValueAtBeginning(10);
     displayList(head);
 
     return 0;
