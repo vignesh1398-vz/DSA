@@ -16,6 +16,11 @@ int setIthBit(int &number, int bit_position) {
     return (number | mask);
 }
 
+int clearLastIBits(int &number, int bit_position) {
+    int mask = (-1 << bit_position);
+    return (number & mask);
+}
+
 int main(int argc, char **argv) {
     int number, bit_position;
     cout << "Enter number: ";
@@ -26,6 +31,7 @@ int main(int argc, char **argv) {
     cout << "\n" << getIthBit(number, bit_position);
     cout << "\n" << clearIthBit(number, bit_position);
     cout << "\n" << setIthBit(number, bit_position); 
+    cout << "\n" << clearLastIBits(number, bit_position);
 
     return 0;
 }
