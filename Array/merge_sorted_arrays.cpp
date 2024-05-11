@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void merge_sorted_array(vector<int> &nums1, int m, vector<int> &nums2, int n)
+void merge(vector<int> &nums1, int m, vector<int> &nums2, int n)
 {
     int last = m + n - 1;
     int i = m - 1;
@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 {
     vector<int> nums1{1, 2, 3, 0, 0, 0};
     vector<int> nums2{2, 5, 6};
-    merge_sorted_array(nums1, 3, nums2, 3);
+    merge(nums1, 3, nums2, 3);
     for (int i = 0; i < nums1.size(); i++)
     {
         cout << nums1[i] << endl;
