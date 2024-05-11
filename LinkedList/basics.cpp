@@ -1,34 +1,41 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
-class Node {
-    public:
+class Node
+{
+public:
     int data;
-    Node* next;
+    Node *next;
 };
 
 Node *head = NULL;
 
 /* Prints the contents of the list */
-void displayList(Node * head) {
+void displayList(Node *head)
+{
     Node *current = head;
-    
-    if(current == NULL) {
+
+    if (current == NULL)
+    {
         cout << "List is empty as of now" << endl;
     }
 
-    while(current != NULL) {
+    while (current != NULL)
+    {
         cout << current->data << "->";
         current = current->next;
     }
 
-    if(head) {
+    if (head)
+    {
         cout << endl;
     }
 }
 
 /* Inserts a new node in the front of the list */
-void insertValueAtBeginning(int value) {
+void insertValueAtBeginning(int value)
+{
     Node *newNode = new Node();
     newNode->data = value;
     newNode->next = head;
@@ -37,9 +44,9 @@ void insertValueAtBeginning(int value) {
     cout << "Inserted : " << value << endl;
 }
 
-
 /* Insert value at the end */
-void insertValueAtEnd(int value) {
+void insertValueAtEnd(int value)
+{
     Node *last = head;
 
     Node *newNode = new Node();
@@ -47,12 +54,15 @@ void insertValueAtEnd(int value) {
     newNode->next = NULL;
 
     /* If list is empty */
-    if(head == NULL) {
+    if (head == NULL)
+    {
         head = newNode;
     }
 
-    else {
-        while(last->next) {
+    else
+    {
+        while (last->next)
+        {
             last = last->next;
         }
 
@@ -63,17 +73,21 @@ void insertValueAtEnd(int value) {
 }
 
 /* Delete node by value */
-void deleteNode(int value) {
+void deleteNode(int value)
+{
 
     Node *prev = NULL, *current = head;
-    if(!current) {
-        cout << "No nodes in the list";    
+    if (!current)
+    {
+        cout << "No nodes in the list";
         return;
     }
 
     /* If the node to be deleted is the head node */
-    if(current && current->data == value) {
-        if(current->next) {
+    if (current && current->data == value)
+    {
+        if (current->next)
+        {
             head = current->next;
         }
 
@@ -82,13 +96,16 @@ void deleteNode(int value) {
     }
 
     /* If the node to be deleted is in the middle */
-    else {
-        while(current && current->data != value) {
+    else
+    {
+        while (current && current->data != value)
+        {
             prev = current;
             current = current->next;
         }
 
-        if(current->data != value) {
+        if (current->data != value)
+        {
             cout << "Sorry the value is not present in the list";
             return;
         }
@@ -97,33 +114,36 @@ void deleteNode(int value) {
         delete current;
     }
 
-
     cout << "Deleted: " << value << endl;
 }
 
-void deleteList() {
+void deleteList()
+{
     Node *current = head, *prev = head;
-    if(!current) {
+    if (!current)
+    {
         cout << "The list is empty" << endl;
         return;
     }
 
     head = NULL;
-    while(current && current->next) {
+    while (current && current->next)
+    {
         prev = current;
         current = current->next;
 
         cout << "Deleting : " << prev->data << endl;
         free(prev);
     }
-    
+
     cout << "Deleting : " << current->data << endl;
     delete current;
 
     cout << "Deleted the whole list" << endl;
 }
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv)
+{
     displayList(head);
 
     insertValueAtBeginning(20);
@@ -141,7 +161,7 @@ int main(int argc, char** argv) {
 
     deleteList();
 
-    //insertValueAtBeginning(10);
+    // insertValueAtBeginning(10);
     displayList(head);
 
     return 0;
