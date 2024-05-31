@@ -5,6 +5,8 @@
         "map": "cpp",
         "iostream": "cpp",
         "string": "cpp",
-        "__locale": "cpp"
+        "__locale": "cpp",
+        "regex": "cpp",
+        "sstream": "cpp"
     }
 }
